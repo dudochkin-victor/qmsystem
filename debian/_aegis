@@ -1,0 +1,48 @@
+<aegis>
+  <request>
+    <credential name="bme::BatteryControl" />
+    <for path="/usr/bin/battery-test" id="battery-test" />
+  </request>
+  <request>
+    <credential name="mce::CallStateControl" />
+    <for path="/usr/bin/callstate-test" id="callstate-test" />
+  </request>
+  <request>
+    <credential name="mce::DeviceModeControl" />
+    <for path="/usr/bin/devicemode-test" id="devicemode-test" />
+  </request>
+  <request>
+    <credential name="mce::LEDControl" />
+    <for path="/usr/bin/led-test" id="led-test" />
+  </request>
+  <request>
+    <credential name="mce::LEDControl" />
+    <for path="/usr/bin/manual-led-test" id="manual-led-test" />
+  </request>
+  <request>
+    <credential name="mce::TKLockControl" />
+    <for path="/usr/bin/locks-test" id="locks-test" />
+  </request>
+  <request>
+    <credential name="mce::TKLockControl" />
+    <for path="/usr/bin/manual-displaystate-test" id="manual-displaystate-test" />
+  </request>
+  <request>
+    <credential name="devicelock::DeviceLockControl" />
+    <credential name="devicelock::State_Locked" />
+    <credential name="devicelock::State_Unlocked" />
+    <for path="/usr/bin/manual-locks-test" id="manual-locks-test" />
+  </request>
+  <request>
+    <credential name="dsme::DeviceStateControl" />
+    <for path="/usr/bin/system-test" id="system-test" />
+  </request>
+  <request>
+    <credential name="timed::TimeControl" />
+    <for path="/usr/bin/time-test" id="time-test" />
+  </request>
+  <request>
+    <credential name="usb-moded::USBControl" />
+    <for path="/usr/bin/manual-usbmode-test" id="manual-usbmode-test" />
+  </request>
+</aegis>

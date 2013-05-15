@@ -1,0 +1,5 @@
+/usr/lib/libqmsystem2.so
+
+/usr/include/qmsystem2/*.h
+/usr/lib/pkgconfig/*.pc
+/usr/share/qt4/mkspecs/features/*.prf

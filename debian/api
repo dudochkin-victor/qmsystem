@@ -1,0 +1,19 @@
+interface: QmSystem
+libs-pkg: libqmsystem2
+dev-pkg: libqmsystem2-dev
+doc-type: doxygen
+type: library
+headers: 
+ /usr/include/qmsystem2/qmactivity.h 
+ /usr/include/qmsystem2/qmbattery.h
+ /usr/include/qmsystem2/qmcabc.h
+ /usr/include/qmsystem2/qmdevicemode.h
+ /usr/include/qmsystem2/qmdisplaystate.h
+ /usr/include/qmsystem2/qmheartbeat.h
+ /usr/include/qmsystem2/qmkeys.h
+ /usr/include/qmsystem2/qmlocks.h
+ /usr/include/qmsystem2/qmsystemstate.h
+ /usr/include/qmsystem2/qmthermal.h
+ /usr/include/qmsystem2/qmtime.h
+state: stable
+scope: Nokia MeeGo

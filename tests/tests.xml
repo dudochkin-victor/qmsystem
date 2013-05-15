@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<testdefinition version="0.1">
+  <!-- Test suite, name mandatory - the same as test package name -->
+  <suite name="libqmsystem2-tests" domain="System Software">
+    <!-- At least one set per suite, name and description mandatory -->
+
+    <set name="Qt-API-subsystem-classes" description="Unit test cases for SystemSW APIs" feature="SystemSW Qt API">
+        <!-- Run environment check test commands-->
+      <pre_steps>
+        <step>echo "executing ps|grep dbus"</step>
+        <step>ps|grep dbus</step>
+        <step>echo "executing ps|grep timed"</step>
+        <step>ps|grep timed</step>
+        <step>echo "executing ls -l /var/run/dbus"</step>
+        <step>ls -l /var/run/dbus</step>
+        <step>echo "executing ls -l /dev/rtc*"</step>
+        <step>ls -l /dev/rtc*</step>
+        <step>echo "executing echo A >/var/junk"</step>
+        <step>echo A >/var/junk</step>
+        <step>echo "executing echo A >/var/cache/junk"</step>
+        <step>echo A >/var/cache/junk</step>
+        <step>echo " executing cat /var/junk"</step>
+        <step>cat /var/junk</step>
+        <step>echo "executing cat /var/cache/junk"</step>
+        <step>cat /var/cache/junk</step>
+      </pre_steps>
+      <case name="activity" level="Component" type="Functional" description="QmActivity"  timeout="15" subfeature="QT_APIs" requirement="39927">
+        <!-- Run test activity application -->
+        <step expected_result="0">/usr/bin/activity-test </step>
+      </case>
+      <case name="battery" level="Component" type="Functional" description="QmBattery" timeout="120" subfeature="QT_APIs" requirement="39927">
+        <!-- Run test cabc application -->
+        <step expected_result="0">/usr/bin/battery-test </step>
+      </case>
+      <case name="cabc" level="Component" type="Functional" description="QmCABC" timeout="15" subfeature="QT_APIs" requirement="39927">
+        <!-- Run test cabc application -->
+        <step expected_result="0">/usr/bin/cabc-test </step>
+      </case>
+      <case name="callstate" level="Component" type="Functional" description="QmCallState" timeout="120" subfeature="QT_APIs" requirement="39927">
+        <!-- Run test  callstate application -->
+        <step expected_result="0">/usr/bin/callstate-test </step>
+      </case>
+      <case name="devicemode" level="Component" type="Functional" description="QmDeviceMode" timeout="120" subfeature="QT_APIs" requirement="39927">
+        <!-- Run test devicemode application -->
+        <step expected_result="0">/usr/bin/devicemode-test </step>
+      </case>
+      <case name="displaystate" level="Component" type="Functional" description="QmDisplayState" timeout="120" subfeature="QT_APIs" requirement="39927">
+        <!-- Run test displaystate application -->
+        <step expected_result="0">/usr/bin/displaystate-test </step>
+      </case>
+      <case name="heartbeat" level="Component" type="Functional" description="QmHeartbeat" timeout="120" subfeature="QT_APIs" requirement="39927">
+        <!-- Run test heartbeat application -->
+        <step expected_result="0">/usr/bin/heartbeat-test </step>
+      </case>
+      <case name="led" level="Component" type="Functional" description="QmLed" timeout="15" subfeature="QT_APIs" requirement="39927">
+        <!-- Run test led application -->
+        <step expected_result="0">/usr/bin/led-test </step>
+      </case>
+      <case name="locks" level="Component" type="Functional" description="QmLocks" timeout="120" subfeature="QT_APIs" requirement="39927">
+        <!-- Run test locks application -->
+        <step expected_result="0">/usr/bin/locks-test </step>
+      </case>
+      <case name="thermal" level="Component" type="Functional" description="QmThermal" timeout="240" subfeature="QT_APIs" requirement="39927">
+        <!-- Run test thermal application -->
+        <step expected_result="0">dsmetool -a; /usr/bin/thermal-test </step>
+      </case>
+      <case name="usbmode" level="Component" type="Functional" description="QmUSBMode" timeout="240" subfeature="QT_APIs" requirement="39927">
+        <!-- Run test usbmode application -->
+        <step expected_result="0">/usr/bin/usbmode-test </step>
+      </case>
+      <case name="watchdog-normal" level="Component" type="Functional" description="QmProcessWatchdog" timeout="330" subfeature="QT_APIs" requirement="39927">
+        <step expected_result="0">/usr/bin/processwatchdog-test testWatchdogBasicOperation</step>
+      </case>
+      <case name="watchdog-close-shave" level="Component" type="Functional" description="QmProcessWatchdog" timeout="180" subfeature="QTAPIs">
+        <step expected_result="0">/usr/bin/processwatchdog-test testWatchdogCloseShave</step>
+      </case>
+      <case name="watchdog-abort" level="Component" type="Functional" description="QmProcessWatchdog" timeout="180" subfeature="QT_APIs" requirement="39927">
+        <step expected_result="134">/usr/bin/processwatchdog-test testWatchdogAbort</step>
+      </case>
+      <case name="systeminformation" level="Component" type="Functional" description="QmSystemInformation" timeout="5" subfeature="QT_APIs" requirement="39927">
+        <step expected_result="0">/usr/bin/systeminformation-test</step>
+      </case>
+      <case name="system-state" level="Component" type="Functional" description="QmSystemState" timeout="30" subfeature="QT_APIs" requirement="39927">
+        <step>mkdir -p /tmp/qmsystemstatejail</step>
+        <step>mkdir -p /tmp/qmsystemstatejail/usr</step>
+        <step>mkdir -p /tmp/qmsystemstatejail/lib</step>
+        <step>mkdir -p /tmp/qmsystemstatejail/dev</step>
+        <step>mkdir -p /tmp/qmsystemstatejail/var/lib/dsme</step>
+        <step>mount -o bind /usr /tmp/qmsystemstatejail/usr</step>
+        <step>mount -o bind /lib /tmp/qmsystemstatejail/lib</step>
+        <step>mount -o bind /dev /tmp/qmsystemstatejail/dev</step>
+        <step expected_result="0">chroot /tmp/qmsystemstatejail /usr/bin/system-test testGetRunstate</step>
+        <!-- bootreason uses libsysinfo0, don't attempt to run in a chroot -->
+        <step expected_result="0">/usr/bin/system-test testGetBootreason</step>
+      </case>
+      <case name="powerontime" level="Component" type="Functional" description="QmSystemPowerOnTime" timeout="30" subfeature="QT_APIs" requirement="39927">
+        <step expected_result="0">/usr/bin/powerontime-test</step>
+      </case>
+      <case name="time" level="Component" type="Functional" description="QmTime"  timeout="180" subfeature="QT_APIs" requirement="39927">
+        <!-- Run test time-test application -->
+        <step expected_result="0">/usr/bin/time-test </step>
+      </case>
+      <!-- Environments optional - tells where the tests are run -->
+      <environments>
+        <scratchbox>false</scratchbox>
+        <hardware>true</hardware>
+      </environments>
+
+      <get>
+        <file>/var/log/syslog</file>
+      </get>
+
+      <post_steps> 
+        <step>umount /tmp/qmsystemstatejail/usr</step>
+        <step>umount /tmp/qmsystemstatejail/lib</step>
+        <step>umount /tmp/qmsystemstatejail/dev</step>
+      </post_steps>
+    </set>
+
+    <set name="Sensor-Service-API" description="Unit test cases for com.nokia.SensorService APIs" feature="SystemSW Qt API">
+      <!-- These pre steps are required to set the magnetometer driver flags to correct values for compass to work -->
+      <pre_steps>
+      <step>cd /sys/class/i2c-adapter/i2c-3/3-000f</step>
+      <step>echo 0 > disable </step>
+      <step>echo 1500 > threshold </step>
+      </pre_steps>
+
+      <case name="accelerometer" level="Component" type="Functional" description="QmAccelerometer" timeout="15"  subfeature="QT_APIs" requirement="39927">
+        <!-- Run test accelerometer application -->
+        <step expected_result="0">/usr/bin/accelerometer-test </step>
+      </case>
+      <case name="als" level="Component" type="Functional" description="QmALS" timeout="15" subfeature="QT_APIs" requirement="39927">
+        <!-- Run test als application -->
+        <step expected_result="0">/usr/bin/als-test </step>
+      </case>
+      <case name="compass" level="Component" type="Functional" description="QmCompass" timeout="15" subfeature="QT_APIs" requirement="39927">
+        <!-- Run test compass application -->
+        <step expected_result="0">/usr/bin/compass-test </step>
+      </case>
+      <case name="orientation" level="Component" type="Functional" description="QmOrientation" timeout="15" subfeature="QT_APIs" requirement="39927">
+        <!-- Run test orientation application -->
+        <step expected_result="0">/usr/bin/orientation-test </step>
+      </case>
+      <case name="tap" level="Component" type="Functional" description="QmTap" timeout="15" subfeature="QT_APIs" requirement="39927">
+        <!-- Run test  tap application -->
+        <step expected_result="0">/usr/bin/tap-test </step>
+      </case>
+      <case name="proximity" level="Component" type="Functional" description="QmProximity" timeout="15"  subfeature="QT_APIs" requirement="39927">
+        <!-- Run test proximity application -->
+        <step expected_result="0">/usr/bin/proximity-test </step>
+      </case>
+      <case name="rotation" level="Component" type="Functional" description="QmRotation" timeout="15"  subfeature="QT_APIs" requirement="39927">
+        <!-- Run test rotation application -->
+        <step expected_result="0">/usr/bin/rotation-test </step>
+      </case>
+      <case name="magnetometer" level="Component" type="Functional" description="QmMagnetometer" timeout="15"  subfeature="QT_APIs" requirement="39927">
+        <!-- Run test magnetometer application -->
+        <step expected_result="0">/usr/bin/magnetometer-test </step>
+      </case>
+      <environments>
+        <scratchbox>false</scratchbox>
+        <hardware>true</hardware>
+      </environments>
+    </set>
+
+    <set name="Qt-API-manual-tests" description="Manual test cases for Qt API" feature="SystemSW Qt API">
+      <case name="manual-orientation" level="Component" type="Functional" manual="true" description="QmOrientation" subfeature="Accelerometer - device orientation" requirement="39948">
+        <step expected_result="0">/usr/bin/manual-orientation-test </step>
+      </case>
+      <case name="manual-accelerometer" level="Component" type="Functional" manual="true" description="QmAccelerometer" subfeature="Accelerometer - device orientation" requirement="39948">
+        <step expected_result="0">/usr/bin/manual-accelerometer-test </step>
+      </case>
+      <case name="manual-compass" level="Component" type="Functional" manual="true" description="QmCompass" subfeature="Magnetometer in SensorFW" requirement="39960">
+        <step expected_result="0">/usr/bin/manual-compass-test </step>
+      </case>
+      <case name="manual-als" level="Component" type="Functional" manual="true" description="QmALS" subfeature="Ambient Light Sensor" requirement="39945">
+        <step expected_result="0">/usr/bin/manual-als-test </step>
+      </case>	
+      <case name="manual-proximity" level="Component" type="Functional" manual="true" description="QmProximity" subfeature="QT_APIs" requirement="39927">
+        <step expected_result="0">/usr/bin/manual-proximity-test </step>
+      </case>
+      <case name="manual-displaystate" level="Component" type="Functional" manual="true" description="QmDisplayState" subfeature="Display control and settings enabler" requirement="74691">
+        <step expected_result="0">/usr/bin/manual-displaystate-test </step>
+      </case>
+      <case name="manual-rotation" level="Component" type="Functional" manual="true" description="QmRotation" subfeature="Accelerometer - device orientation" requirement="39948">
+	    <step expected_result="0">/usr/bin/manual-rotation-test </step>
+      </case>
+      <case name="manual-keys-camera" level="Component" type="Functional" manual="true" description="QmKeys" subfeature="QT_APIs" requirement="39927">
+        <step expected_result="0">/usr/bin/manual-keys-test testCameraBasic</step>
+        <step expected_result="0">/usr/bin/manual-keys-test testCameraStress</step>
+        <step expected_result="0">/usr/bin/manual-keys-test testCameraBasicNew</step>
+      </case>
+      <case name="manual-keys-slider" level="Component" type="Functional" manual="true" description="QmKeys" subfeature="QT_APIs" requirement="39927">
+        <step expected_result="0">/usr/bin/manual-keys-test testKeypadSlideBasic</step>
+        <step expected_result="0">/usr/bin/manual-keys-test testKeypadSlideBasicNew</step>
+      </case>
+      <case name="manual-keys-volume" level="Component" type="Functional" manual="true" description="QmKeys" subfeature="QT_APIs" requirement="39927">
+        <step expected_result="0">/usr/bin/manual-keys-test testVolumeBasic</step>
+        <step expected_result="0">/usr/bin/manual-keys-test testVolumeBasicNew</step>
+      </case>
+      <case name="manual-keys-eci" level="Component" type="Functional" manual="true" description="QmKeys" subfeature="QT_APIs" requirement="39927">
+        <step expected_result="0">/usr/bin/manual-keys-test testECI</step>
+      </case>
+      <case name="manual-led" level="Component" type="Functional" manual="true" description="QmLed" subfeature="QT_APIs" requirement="39927">
+        <step expected_result="0">/usr/bin/manual-led-test </step>
+      </case>
+      <case name="manual-bgcalibration" level="Component" type="Functional" manual="true" description="QmMagnetometer" subfeature="Magnetometer in SensorFW" requirement="39960">
+        <step expected_result="0">/usr/bin/manual-bgcalibration-test </step>
+      </case>
+      <case name="manual-locks" level="Component" type="Functional" manual="true" description="devicelock" subfeature="QT_APIs" requirement="39927">
+        <step expected_result="0">/usr/bin/manual-locks-test </step>
+      </case>
+      <case name="manual-usbmode" level="Component" type="Functional" manual="true" description="usbmode" subfeature="QT_APIs" requirement="39927">
+        <step expected_result="0">/usr/bin/manual-usbmode-test </step>
+      </case>
+      <case name="manual-tap" level="Component" type="Functional" manual="true" description="tap" subfeature="QT_APIs" requirement="39927">
+        <step expected_result="0">/usr/bin/manual-tap-test </step>
+      </case>
+      <environments>
+        <scratchbox>false</scratchbox>
+         <hardware>true</hardware>
+      </environments>
+    </set>
+
+ </suite>
+ </testdefinition>

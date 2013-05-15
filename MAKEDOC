@@ -1,0 +1,24 @@
+#
+# Generate Doxygen PDF
+# 
+# You should install graphviz and texlive-extra-utils package 
+#
+
+
+export INPUT=`pwd`/system
+export STRIP_FROM_PATH=`pwd` 
+
+#sudo mkdir /usr/include/sensord 2>/dev/null
+#mkdir tmp 2>/dev/null
+#dpkg -x ../../sensorfw/libsensord-dev_0.5.24_armel.deb tmp
+#sudo cp -r  tmp/usr/include/sensord/* /usr/include/sensord
+
+rm -rf doc/html
+rm -rf doc/latex
+
+doxygen `pwd`/doc/Doxyfile
+cd doc/latex
+make pdf
+mv refman.pdf SystemSwQtAPI.pdf
+
+

@@ -1,0 +1,1226 @@
+qmsystem2 (1.1.6) unstable; urgency=low
+
+  [Matias Muhonen]
+  * Allocate the QmTimePrivate2 class from heap (Fixes: NB#237975)
+
+ -- Matias Muhonen <ext-matias.muhonen@nokia.com>  Fri, 25 Mar 2011 13:20:31 +0200
+
+qmsystem2 (1.1.5) unstable; urgency=low
+
+  [Matias Muhonen]
+  * Make refcounting in QmTimePrivate2 thread-safe (Fixes: NB#237975)
+
+ -- Matias Muhonen <ext-matias.muhonen@nokia.com>  Thu, 24 Mar 2011 09:03:39 +0200
+
+qmsystem2 (1.1.4) unstable; urgency=low
+
+  [Lihan Guo]
+  * Add als streaming test case in als manual test
+
+  [Matias Muhonen]
+  * Remove the legacy time format handling code (Fixes: NB#237889)
+
+ -- Matias Muhonen <ext-matias.muhonen@nokia.com>  Wed, 23 Mar 2011 09:08:04 +0200
+
+qmsystem2 (1.1.3) unstable; urgency=low
+
+  [Matias Muhonen]
+  * Improve QmBattery's documentation (Fixes: NB#237239)
+
+ -- Matias Muhonen <ext-matias.muhonen@nokia.com>  Thu, 17 Mar 2011 12:42:13 +0200
+
+qmsystem2 (1.1.2) unstable; urgency=low
+
+  [Yang Yang]
+  * Remove getTZName() from time-test, which is deprecated
+
+  [Matias Muhonen]
+  * Improve the documentation of the main page (Fixes: NB#235447)
+  * Parse mounts from /proc/mounts (Fixes: NB#231816)
+
+ -- Yang Yang <ext-yang.25.yang@nokia.com>  Tue, 15 Mar 2011 13:50:19 +0200
+
+qmsystem2 (1.1.1) unstable; urgency=low
+
+  [Shenghua Liu]
+  * Improve QmSensor API documentation
+
+  [Matias Muhonen]
+  * Fix a crash in QmTime (Fixes: NB#230333)
+
+ -- Matias Muhonen <ext-matias.muhonen@nokia.com>  Thu, 10 Mar 2011 14:21:28 +0200
+
+qmsystem2 (1.1.0) unstable; urgency=low
+
+  [Matias Muhonen]
+  * Fix the heartbeat test
+  * Fix compilation under GCC 4.5 (Fixes: NB#234925)
+
+ -- Matias Muhonen <ext-matias.muhonen@nokia.com>  Mon, 7 Mar 2011 09:39:17 +0200
+
+qmsystem2 (1.0.16) unstable; urgency=low
+
+  [Yang Yang]
+  * Add test mount options to manual-usbmode-test
+
+ -- Matias Muhonen <ext-matias.muhonen@nokia.com>  Thu, 3 Mar 2011 12:15:57 +0200
+
+qmsystem2 (1.0.15) unstable; urgency=low
+
+  [Matti Halme]
+  * QmBattery: Fixed a minutes/seconds conversion bug.
+  * Fixes: NB#231716 - QmSystem2 uses incorrect build dependency.
+
+  [Sirpa Tahkamo]
+  * Edited documentation for consistency
+
+ -- Matias Muhonen <ext-matias.muhonen@nokia.com>  Mon, 28 Feb 2011 09:09:44 +0200
+
+qmsystem2 (1.0.14) unstable; urgency=low
+
+  [Matti Halme]
+  * Utilize the use time daemon in talk/active/idle queries.
+
+  [Ilya Dogolazky]
+  * Fixes: NB#198141 - QmTime produces unnecessary D-Bus traffic
+  * Fixes: NB#201997 - QmTime::isOperatorTimeAccessible() returns false, even if NITZ usage is not disabled by customization
+  * Fixes: NB#202025 - QmTime::getRemoteTime sometimes produce random results
+  * Fixes: NB#202034 - QmTime::getRemoteTime is not calling tzset() after restoring empty TZ
+  * Fixes: NB#203406 - there is no way to get default time zone via qmsystem library
+  * Fixes: NB#204558 - QmTime is never signalling "setting only changed" (unless only the 12/24 flag is changed)
+
+ -- Matias Muhonen <ext-matias.muhonen@nokia.com>  Thu, 24 Feb 2011 08:18:57 +0200
+
+qmsystem2 (1.0.13) unstable; urgency=low
+
+  [Matias Muhonen]
+  * Fixes: NB#228033 - VolumeControl does not function in video, Audio and Call Applications.
+
+  [Matti Halme]
+  * Emit delayed charging state signal in case of USB100. Fixes: NB#228167.
+
+ -- Matti Halme <matti.halme@nokia.com>  Tue, 22 Feb 2011 16:51:13 +0200
+
+qmsystem2 (1.0.12) unstable; urgency=low
+
+  [Timo Rongas]
+  * Added precision to QmCompass documentation. Fixes: NB#228420.
+
+ -- Timo Rongas <ext-timo.2.rongas@nokia.com>  Mon, 21 Feb 2011 09:53:07 +0200
+
+qmsystem2 (1.0.11) unstable; urgency=low
+
+  [Lihan Guo]
+  * Deprecated QmSensor::closeSession().
+
+  [Matti Halme]
+  * Re-open connection to bme in case of failure. Fixes: NB#227642.
+
+  [Matias Muhonen]
+  * Attempt to fix the warnings given by the static analysis tool in QmKeyd
+
+ -- Matti Halme <matti.halme@nokia.com>  Tue, 15 Feb 2011 13:32:34 +0200
+
+qmsystem2 (1.0.10) unstable; urgency=low
+
+  [Matti Halme]
+  * Query idle time estimate from use time daemon if present
+
+  [Matias Muhonen]
+  * Fixes: NB#226978 - QmActivity::get returns wrong Activity
+
+ -- Matti Halme <matti.halme@nokia.com>  Wed, 09 Feb 2011 10:11:41 +0200
+
+qmsystem2 (1.0.9) unstable; urgency=low
+
+  [Yang Yang]
+  * Disable touch screen autolock before setBlankingPause in manual-displaystate-test
+
+  [Tapio Rantala]
+  * Don't say Off to displaystate when mce doesn't say it
+  * Fixes: NB#225378 - MeeGo::QmDisplayState() emits wrong state for display
+
+  [Matias Muhonen]
+  * Optimize the D-Bus calls in QmDisplayState
+
+ -- Tapio Rantala <ext-tapio.rantala@nokia.com>  Mon, 07 Feb 2011 10:08:07 +0200
+
+qmsystem2 (1.0.8) unstable; urgency=low
+
+  [Yang Yang]
+  * Add test displayStateChanged signal to manual-displaystate-test, and rotate to manual-orientation-test
+
+  [Matias Muhonen]
+   * Mark deprecated methods with the @deprecated annotation
+   * Fixes: NB#225060 - QmSystem still generates documentation packages when the DEB_BUILD_OPTIONS "nodocs" is given
+
+ -- Yang Yang <ext-yang.25.yang@nokia.com>  Wed, 2 Feb 2011 13:37:19 +0200
+
+qmsystem2 (1.0.7) unstable; urgency=low
+
+   [Yang Yang]
+   * Add mountStatus and fileSystemWillUnmount test to manual-usb-test
+
+   [Matias Muhonen]
+   * Fixes: NB#221794 - QT API (QmUSBMode) should support new signals and provide "Mount" status
+   * Bump copyright year
+   * Depend on mce in the default build configuration
+
+ -- Matias Muhonen <ext-matias.muhonen@nokia.com>  Fri, 28 Jan 2011 09:23:03 +0200
+
+qmsystem2 (1.0.6) unstable; urgency=low
+
+   [Matias Muhonen]
+   * Fixes: NB#218103 - qmsystem classes shouldn't connect to dbus signals in constructors
+
+ -- Matias Muhonen <ext-matias.muhonen@nokia.com>  Wed, 19 Jan 2011 10:01:26 +0200
+
+qmsystem2 (1.0.5) unstable; urgency=low
+
+   [Yang Yang]
+   * Add power key test to manual-key-test
+
+   [Matias Muhonen]
+   * Fixes: NB#218465 - Activate offline mode shown in offline mode
+   * Fixes: NB#218788 - QmKeys does not inform clients about power key presses
+   * Put back devicelock functionality without the devicelock dependency
+
+ -- Matias Muhonen <ext-matias.muhonen@nokia.com>  Fri, 14 Jan 2011 13:16:02 +0200
+
+qmsystem2 (1.0.4) unstable; urgency=low
+
+   [Antti Virtanen]
+   * Compatible with sensord-0.6.33.
+
+ -- Antti Virtanen <antti.i.virtanen@nokia.com>  Wed, 29 Dec 2010 14:44:18 +0200
+
+qmsystem2 (1.0.3) unstable; urgency=low
+
+   [Matias Muhonen]
+   * Added QmSystemInformation
+   * Fixes: NB#211690 - Circular dependency between qmsystem2, devicelock and qt-mobility
+   * Use timed's package config file for linking to libtimed
+
+ -- Matias Muhonen <ext-matias.muhonen@nokia.com>  Wed, 29 Dec 2010 11:17:08 +0200
+
+qmsystem2 (1.0.2) unstable; urgency=low
+
+   [Matias Muhonen]
+   * Optimize QmIPCInterface::callAsynchronously() performance
+   * Fixes: NB#214676 - QmSystem does not expose the possibility to make any async calls for blocking functionality
+
+ -- Matias Muhonen <ext-matias.muhonen@nokia.com>  Mon, 27 Dec 2010 12:10:16 +0200
+
+qmsystem2 (1.0.1) unstable; urgency=low
+
+   [Matias Muhonen]
+   * Fix warnings from the static analysis tool
+   * Optimize QmIPCInterface performance by using QDBusAbstractInterface instead of QDBusInterface
+   * Fixes: NB#214660 - QmSystem uses QDBusInterface, potentially causing serious performance issues.
+
+ -- Matias Muhonen <ext-matias.muhonen@nokia.com>  Thu, 23 Dec 2010 12:23:17 +0200
+
+qmsystem2 (1.0.0) unstable; urgency=low
+
+   [Matias Muhonen]
+   * Fix missing return in QmKeysPrivate::getKeyState
+
+   [Tapio Rantala]
+   * Releasing for MeeGo
+
+ -- Matias Muhonen <ext-matias.muhonen@nokia.com>  Mon, 20 Dec 2010 09:42:40 +0200
+
+qmsystem2 (0.0.11) unstable; urgency=low
+
+   [Matias Muhonen]
+   * Made devicelock dependency optional
+   * Made usb-moded-dev dependency optional
+   * Made sysinfo dependency optional
+   * Use pkgconfig with qmake
+   * Make bmeipc dependency optional
+   * Fix a deprecated location for posedata.h in QmOrientation
+   * Made mce dependency optional
+   * Test each cabc mode separately
+   * Fix cabc test
+   * Fixes: NB#211192 - QmLocks makes blocking dbus calls
+   * Remove sysfs-watcher
+   * Rename qmipcinterface.h => qmipcinterface_p.h
+
+   [Tapio Rantala]
+   * Proper package config file format
+
+ -- Matias Muhonen <ext-matias.muhonen@nokia.com>  Wed, 08 Dec 2010 08:55:43 +0200
+
+qmsystem2 (0.0.10) unstable; urgency=low
+
+  [Yang Yang]
+  * Add time constraint for manual-usb-test:QmUSBMode::setMode()
+  * Add check QmTime::setTimezone() if empty string, returns false without asking timed
+  * Remove tests for deprecated functions in time-test, fix setTimezone test
+
+  [Matias Muhonen]
+  * Add manual-batterymon-test
+  * Rename msystemdbus.h => msystemdbus_p.h and remove unused D-Bus interface declarations
+
+  [Raimo Vuonnala]
+  * Removed qmusbmode from Nokia Meego scope
+
+  [Ilya Dogolazky]
+  * Removed ':' before the time zone names
+
+ -- Raimo Vuonnala <raimo.vuonnala@nokia.com>  Fri, 03 Dec 2010 08:46:08 +0200
+
+qmsystem2 (0.0.9) unstable; urgency=low
+
+  [Yang Yang]
+  * Add test error signal of qmusbmoded, open usbmod-test
+
+  [Matias Muhonen]
+  * Fixes: NB#207792 - MeeGo::QmUSBMode::setMode() may block for several seconds
+
+ -- Yang Yang <ext-yang.25.yang@nokia.com>  Wed, 24 Nov 2010 12:50:19 +0200
+
+qmsystem2 (0.0.8) unstable; urgency=low
+  [ Pia Niemela ]
+  * Fixes: NB#205367 - mod to qmsensor's destructor 
+
+  [Yang Yang]
+  * Add testGetBatteryCondition
+
+  [Matias Muhonen]
+  * Fixes: NB#205929 - Get rid of /proc/component_version and /proc/bootreason files
+  * Fixes: NB#205080 - Add usb_moded error message signal handling to QT api
+
+ -- Yang Yang <ext-yang.25.yang@nokia.com>  Mon, 22 Nov 2010 13:50:19 +0200
+
+qmsystem2 (0.0.7) unstable; urgency=low
+
+  [Matias Muhonen]
+  * Improve bluetooth headset detection
+  * Fixes: NB#196881 - volume cannot be minimized with WH701 sometimes
+
+ -- Matias Muhonen <ext-matias.muhonen@nokia.com>  Mon, 15 Nov 2010 14:07:21 +0200
+
+qmsystem2 (0.0.6) unstable; urgency=low
+
+  [Matias Muhonen]
+  * Fixes: NB#202890 - qmsystem QmTime test cases need to be enabled
+
+ -- Matias Muhonen <ext-matias.muhonen@nokia.com>  Fri, 12 Nov 2010 09:30:06 +0200
+
+qmsystem2 (0.0.5) unstable; urgency=low
+
+  [Raimo Vuonnala]	
+  * Commented that QmKeys should be destructed when app does not expect key pressures
+
+  [Matias Muhonen]
+  * Fixes: NB#201671 - COREWEB: /usr/bin/sysuid 'isSignalConnected QMetaObject::activate Maemo::QmTime::timeOrSettingsChanged Maemo::QmTimePrivate::gconfkey_changed notify_listeners_callback'
+  * Fixes: NB#202311 - qmsystem2 tries to connect to slots that don't exist
+  * Fixes: NB#203249 - battery-test failed
+  * Fix lc_timeformat24h handling in getTimeFormat (and don't leak memory)
+
+ -- Matias Muhonen <ext-matias.muhonen@nokia.com>  Tue, 09 Nov 2010 11:26:49 +0200
+
+qmsystem2 (0.0.4) unstable; urgency=low
+
+  [Yang Yang]
+  * Fixes: NB#201690 - qmsystem-api-fast-tests take 12 mins for execution
+  * Add QmKeys::UnknownKey
+  * Added a method for querying battery condition
+
+ -- Matti Halme <matti.halme@nokia.com>  Tue, 02 Nov 2010 10:56:12 +0200
+
+qmsystem2 (0.0.3) unstable; urgency=low
+
+  * Fixes: NB#201532 - /usr/lib/pkgconfig/qmsystem2.pc lists incorrect includepath
+
+ -- Yang Yang <ext-yang.25.yang@nokia.com>  Mon, 1 Nov 2010 12:50:19 +0300
+
+qmsystem2 (0.0.2) unstable; urgency=low
+
+  * Fixes: NB#198843 - offline mode button state is not preserved after reboot.
+  * Fixes: NB#199370 - Copyright tag not defined in qmsystem
+
+ -- Yang Yang <ext-yang.25.yang@nokia.com>  Fri, 29 Oct 2010 10:50:19 +0300
+
+qmsystem2 (0.0.1) unstable; urgency=low
+
+  * Namespace change
+  * suffix "2" used
+
+ -- Raimo Vuonnala <raimo.vuonnala@nokia.com>  Fri, 11 Oct 2010 12:14:54 +0300
+
+qmsystem (0.2.12) unstable; urgency=low
+
+  * Add QmKeys::RightCtrl
+
+ -- Yang Yang <ext-yang.25.yang@nokia.com>  Fri, 15 Oct 2010 14:50:19 +0300
+
+qmsystem (0.2.11) unstable; urgency=low
+
+  * Fixes: NB#184852 -- unable to set Automatic time udpate to "ON" state
+  * Prepared testing application for the coming timed-voland interface change
+  * Disabled boring mangling warning
+  * Deprecation of two broken auto time methods
+  * Added 2 getters and 2 setters for auto system timed and time zone handling
+
+ -- Ilya Dogolazky <ilya.dogolazky@nokia.com>  Wed, 13 Oct 2010 16:25:10 +0300
+
+qmsystem (0.2.10) unstable; urgency=low
+
+  * Added "-d" arg to enable debugging
+  * When no clients, close all dev handles
+  * Fixes: NB#197187 - qmkeyd should not open any input devices when no users need key signals
+
+ -- Raimo Vuonnala <raimo.vuonnala@nokia.com>  Fri, 08 Oct 2010 14:22:44 +0300
+
+qmsystem (0.2.9) unstable; urgency=low
+
+  * Fixes: NB#196480 -  Music application control play/pause behaving oddly with BT devices
+
+ -- Yang Yang <ext-yang.25.yang@nokia.com>  Fri, 24 Sep 2010 15:50:19 +0300
+
+qmsystem (0.2.8) unstable; urgency=low
+
+  [ Raimo Vuonnala ]
+  * Do not check /var/malf for MALF state because MALF is the same as USER
+  * Added displaystate to aegis requests
+  * Put qmtap to documentation and API file.
+
+ -- Jukka Niskala <ext-jukka.m.niskala@nokia.com>  Fri, 01 Oct 2010 09:58:37 +0300
+
+qmsystem (0.2.7) unstable; urgency=low
+
+  * Fixes: NB#191056 -  Selected time format(24hr) is not getting reflected in status bar
+  * Add key capibility query for qmkeyd
+
+ -- Yang Yang <ext-yang.25.yang@nokia.com>  Fri, 24 Sep 2010 15:50:19 +0300
+
+qmsystem (0.2.6) unstable; urgency=low
+
+  * Fixes: NB#192960 - No doc-type field is specified in debain/api file in qmsystem libraries sources
+  * Fixes: NB#191056 -  Selected time format(24hr) is not getting reflected in status bar
+  * Add manual-tap-test and open it in test.xml
+
+ -- Yang Yang <ext-yang.25.yang@nokia.com>  Mon, 20 Sep 2010 12:50:19 +0300
+
+qmsystem (0.2.5) unstable; urgency=low
+
+  * QmHeartbeat doesn't use symbols_p.h anymore. Instead libqmsystem will be linked against libiphb directly. Fixes: NB#191757. Symbols code won't be anymore compiled since it is deprecated.
+
+ -- Antti Virtanen <antti.i.virtanen@nokia.com>  Wed, 15 Sep 2010 11:29:11 +0300
+
+qmsystem (0.2.4) unstable; urgency=low
+
+  [ Raimo Vuonnala ]
+  * Fixed api-file and mainpage.h
+  * MALF state was not properly detected
+  [ Antti Virtanen ]
+  * Fixed memory leak from QmKeysPrivate: heap allocated socket was not deleted.
+  * Fixed memory leak from QmSystemStatePrivate: heap allocated poweronRequestIf was not deleted.
+  * Fixed two memory leaks from SysfsWatcher: file and watcher pointers weren't deleted.
+  * Fixed memory leak from QmDisplayState::setDisplayDimTimeout(): in case of success the possible-dim-list slist was not freed.
+    [ Yang Yang ]
+  * Fixes: NB#188318 - 'Not enough power to charge' is always displayed when USB cable is connected.
+
+ -- Yang Yang <ext-yang.25.yang@nokia.com>  Thu, 9 Sep 2010 13:50:19 +0300
+
+qmsystem (0.2.3) unstable; urgency=low
+
+  * Fixes: NB#188318 - 'Not enough power to charge' is always displayed when USB cable is connected.
+
+ -- Yang Yang <ext-yang.25.yang@nokia.com>  Fri, 3 Sep 2010 14:50:19 +0300
+
+qmsystem (0.2.2) unstable; urgency=low
+
+  * Fixes: NB#189739 - Every second BT headset play/pause button press signal is missed
+
+ -- Yang Yang <ext-yang.25.yang@nokia.com>  Fri, 3 Sep 2010 11:30:19 +0300
+
+qmsystem (0.2.1) unstable; urgency=low
+
+  * Append two events to enum Key
+
+ -- Yang Yang <ext-yang.25.yang@nokia.com>  Wed, 1 Sep 2010 10:30:19 +0300
+
+qmsystem (0.2) unstable; urgency=low
+
+  * Fixes: NB#188728 - qmkeyd hangs on start up if /tmp/qmkeyd file exists
+
+ -- Matias Muhonen <ext-matias.muhonen@nokia.com>  Tue, 31 Aug 2010 14:00:52 +0300
+
+qmsystem (0.1.100) unstable; urgency=high
+
+  * Add BT events KEY_NEXTSONG and KEY_PREVIOUSSONG, add testBT
+
+ -- Yang Yang <ext-yang.25.yang@nokia.com>  Tue, 31 Aug 2010 12:30:19 +0300
+
+qmsystem (0.1.99) unstable; urgency=high
+
+  * Fixes: NB#186740: BT headset button presses not signaled from QmKeys
+
+ -- Yang Yang <ext-yang.25.yang@nokia.com>  Mon, 30 Aug 2010 11:30:19 +0300
+
+qmsystem (0.1.98) unstable; urgency=low
+
+  [ Raimo  Vuonnala ]
+  * Removed internal stuff from Doxygen docs
+  * Added @scope for all h-files
+
+  [ Matias Muhonen ]
+  * Fixes: NB#187637: qmsystem: enable powerontime-test in tests.xml
+
+ -- Matias Muhonen <ext-matias.muhonen@nokia.com>  Tue, 26 Aug 2010 11:03:19 +0300
+
+qmsystem (0.1.97) unstable; urgency=low
+
+  [ Denis Zalevskiy ]
+  * QmBattery: ipc connection to bme stays opened until the end of session
+
+  [ Raimo  Vuonnala ]
+  * Added two new thermal states for exception cases
+
+  [ Matti Halme ]
+  * Fixed the remaining charging time wrapper
+
+  [ Simo Piiroinen ]
+  * QmSystemState: Added a method for querying the current power on time in seconds
+
+ -- Matias Muhonen <ext-matias.muhonen@nokia.com>  Tue, 25 Aug 2010 08:29:02 +0300
+
+qmsystem (0.1.96) unstable; urgency=low
+
+  [ Yang Yang ]
+  * Fixes: NB#184515 - libqmsystem0 force everything using them to link Qt UI & X libraries
+
+ -- Denis Zalevskiy <denis.zalevskiy@nokia.com>  Fri, 20 Aug 2010 11:01:30 +0300
+
+qmsystem (0.1.95) unstable; urgency=low
+
+  [ Denis Zalevskiy ]
+  * Fixes: NB#172096 - Maemo::QmBattery::~QmBattery() hangs for several seconds in ScratchBox
+
+ -- Denis Zalevskiy <denis.zalevskiy@nokia.com>  Mon, 09 Aug 2010 13:37:29 +0300
+
+qmsystem (0.1.94) unstable; urgency=low
+
+  * Revert back to version 91. Give bug 182523 to camera-UI
+
+ -- Yang Yang <ext-yang.25.yang@nokia.com>  Fri, 06 Aug 2010 15:18:44 +0300
+
+qmsystem (0.1.93) unstable; urgency=low
+
+  * Repaired one memory leak.
+
+ -- Yang Yang <ext-yang.25.yang@nokia.com>  Tue, 03 Aug 2010 16:18:44 +0300
+
+qmsystem (0.1.92) unstable; urgency=low
+
+  * Fixes: NB#182523 - Camera launches using HW shutter key even device is in locked state
+
+ -- Yang Yang <ext-yang.25.yang@nokia.com>  Thu, 29 Jun 2010 16:18:44 +0300
+
+qmsystem (0.1.91) unstable; urgency=low
+
+  [ Yang Yang ]
+  * Fixes: NB#181512 - qmsystem cannot be built with cs2009q3 hardfp toolchain
+
+ -- Denis Zalevskiy <denis.zalevskiy@nokia.com>  Tue, 27 Jul 2010 14:55:12 +0300
+
+qmsystem (0.1.90) unstable; urgency=low
+
+  * Made a delayed initialization of QDbusInterface for devicelock to avoid
+    25s delay in ACT_DEAD mode in QmLocksPrivate constructor.
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Tue, 20 Jul 2010 15:58:17 +0300
+
+qmsystem (0.1.89) unstable; urgency=low
+
+  * Fixes: NB#180084 -  test case wording confusion
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Mon, 12 Jul 2010 13:03:13 +0300
+
+qmsystem (0.1.88) unstable; urgency=low
+
+  * Made processwatchdog-test more robust
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Mon, 12 Jul 2010 11:54:32 +0300
+
+qmsystem (0.1.87) unstable; urgency=low
+
+  * Added support for bootreason "nsu"
+  * Fixes: NB#176730 -  Unable to make emergency call when device is locked by lock code
+
+ -- Raimo Vuonnala <raimo.vuonnala@nokia.com>  Wed, 30 Jun 2010 12:59:43 +0300
+
+qmsystem (0.1.86) unstable; urgency=low
+
+  * Added manual-usbomode-test
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Thu, 24 Jun 2010 09:54:23 +0300
+
+qmsystem (0.1.85) unstable; urgency=low
+
+  * Added credentials for the tests
+  * Added manual-locks-test to be run
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Tue, 22 Jun 2010 13:56:26 +0300
+
+qmsystem (0.1.84) unstable; urgency=low
+
+  * Added open source headers and changed doxygen stuff according to api guidelines
+  * An old bug reopened & fixed :)
+  * Fixes: NB#173775 -  When accelerometer session is requested, it returns error "Unable to connect the signals"
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Thu, 17 Jun 2010 14:54:44 +0300
+
+qmsystem (0.1.83) unstable; urgency=low
+
+  * Fixes: NB#175401 -  QmSystem Maemo::QmActivity is broken
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Thu, 17 Jun 2010 14:54:44 +0300
+
+qmsystem (0.1.82) unstable; urgency=low
+
+  * Fixed the qmsystem.pc version :-)
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Fri, 11 Jun 2010 15:05:44 +0300
+
+qmsystem (0.1.81) unstable; urgency=low
+
+  * Fixes: NB#174015 -  QmKeys signal paremeters should be fully qualified...
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Fri, 11 Jun 2010 13:17:26 +0300
+
+qmsystem (0.1.80) unstable; urgency=low
+
+  * Fixes: NB#173775 -  When accelerometer session is requested, it returns error "Unable to connect the signals"
+  * Added some support for ECI keys to QmKeyd and QmKeys.
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Thu, 10 Jun 2010 14:54:30 +0300
+
+qmsystem (0.1.79) unstable; urgency=low
+
+  * Changes to QmLocks and QmKeys
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Wed, 09 Jun 2010 12:37:08 +0300
+
+qmsystem (0.1.78) unstable; urgency=low
+
+  * Fixed a test case.
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Tue, 08 Jun 2010 10:34:11 +0300
+
+qmsystem (0.1.77) unstable; urgency=low
+
+  * Removed MCE_DEVICE_* stuff from QmLocks.
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Mon, 07 Jun 2010 15:50:05 +0300
+
+qmsystem (0.1.76) unstable; urgency=low
+
+  * Fixes: NB#160253 -  Automatic time update does not update time and date
+  * Basically just make getAutosync() check that utcSource is UtcNitz and don't
+    care about timezoneSource() :)
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Mon, 07 Jun 2010 10:22:25 +0300
+
+qmsystem (0.1.75) unstable; urgency=low
+
+  * Fixes: NB#172338 -  Crash in accelerometer demo provided in qmsystem-demo-0.1.46
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Thu, 03 Jun 2010 15:36:22 +0300
+
+qmsystem (0.1.74) unstable; urgency=low
+
+  * Implemented: SWP#MaSSW-1823 QmLocks to use devicelockd i/f instead of MCE
+  * Fixes: NB#171291 -  Qt keywords signals and slots should be removed in qmsystem library
+  * Added reset method for QmMagnetometer class.
+  * Added Background calibration unit test.
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Tue, 25 May 2010 14:34:51 +0300
+
+qmsystem (0.1.73) unstable; urgency=low
+
+  * Modified bootflag tests
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Thu, 20 May 2010 16:09:45 +0300
+
+qmsystem (0.1.72) unstable; urgency=low
+
+  * Made .pro and .prf files cleaner
+  * NB#164314 -  qmsystem executables being linked against old version of the libraries
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Tue, 18 May 2010 12:46:06 +0300
+
+qmsystem (0.1.71) unstable; urgency=low
+
+  * Fixed a test case
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Fri, 14 May 2010 11:35:16 +0300
+
+qmsystem (0.1.70) unstable; urgency=low
+
+  * Updated qmsystem.pc
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Mon, 12 May 2010 16:08:30 +0300
+
+qmsystem (0.1.69) unstable; urgency=low
+
+  * Fixed a bug in a test.
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Mon, 12 May 2010 11:16:33 +0300
+
+qmsystem (0.1.68) unstable; urgency=low
+
+  * Prepared for a change PSM_MODE -> PSM_STATE in mce-dev.
+  * Fixes: NB#168461 -  Wrapper for getrunstate to QmSystemState class
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Mon, 11 May 2010 09:20:52 +0300
+
+qmsystem (0.1.67) unstable; urgency=low
+
+  * Fixes: NB#168208 -  QmSystem breaks GUI applications building...
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Mon, 11 May 2010 08:49:10 +0300
+
+qmsystem (0.1.66) unstable; urgency=low
+
+  * Fixes: NB#168053 -  QmSystem dependencies broke
+
+  [Matti Halme]
+  * QmBattery: Added getBatteryCurrent() and getCumulativeBatteryCurrent()
+  * QmBattery: Provide fresh data also in the middle of events
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Mon, 10 May 2010 14:00:02 +0300
+
+qmsystem (0.1.65) unstable; urgency=low
+
+  * Fixed manual test for QmRotation
+
+  [Timo Olkkonen]
+  * Fixes: NB#167336 -  libqmsystem missing debian pkg dependencies under x86
+  * Fixes: NB#167457 -  qmsystem.pc has wrong version numbe
+
+ -- Timo Rongas <ext-timo.2.rongas@nokia.com>  Mon, 03 May 2010 15:23:33 +0300
+
+qmsystem (0.1.64) unstable; urgency=low
+
+  * This time fixed the changelog :)
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Fri, 30 Apr 2010 14:59:33 +0300
+
+qmsystem (0.1.63) unstable; urgency=low
+
+  * Fixed QmBattery ABI for old sysuid.
+  * Removed old libtime from Depends
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Fri, 30 Apr 2010 14:50:40 +0300
+
+qmsystem (0.1.62) unstable; urgency=low
+
+  * Fixes: NB#166391 -  QmTime doesn't emit timeOrSettingsChanged signal
+  * Fixes: NB#162393 -  QmTime::timeOrSettingsChanged(QmTimeWhatChanged what) signal's argument is not fully qualified
+  * Fixes: NB#162775 -  Possible heap corruption in Maemo::QmTime::getTimezone
+  * Fixes: NB#162864 -  A crash occurs in the QmTime constructor if libtime0 is not installed
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Fri, 30 Apr 2010 09:21:00 +0300
+
+qmsystem (0.1.61) unstable; urgency=low
+
+  [Timo Olkkonen]
+  * Implemented: SWP#MaSSW-1543, SWP#MaSSW-1666, SWP#MaSSW-1667
+  * Updated QmUSBMode
+  * Implemented QmDeviceMode::getPSMBatteryMode
+  * Added a test for QmDeviceMode::set/getPSMBatteryMode
+  * Changed qmkeyd to open/close files on demand
+
+  [Matti Halme]
+  * Several changes/fixes to qmbattery to make it better aligned with bme
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Wed, 21 Apr 2010 10:29:47 +0300
+
+qmsystem (0.1.60) unstable; urgency=low
+
+  [Timo Olkkonen]
+  * Modified alarm tests.
+  * Fixes: NB#164314 -  qmsystem executables being linked against old version of the libraries
+  * Fixes: NB#164688 -  Cancel screen blanking prevention request
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Thu, 15 Apr 2010 09:51:25 +0300
+
+qmsystem (0.1.59) unstable; urgency=low
+
+  [Timo Olkkonen]
+  * Fixed more bugs.
+
+ -- Timo Olkkonen <exit-timo.p.olkkonen@nokia.com>  Wed, 14 Apr 2010 12:40:12 +0300
+
+qmsystem (0.1.58) unstable; urgency=low
+
+  [Timo Olkkonen]
+  * Fixed a few bugs.
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Wed, 14 apr 2010 11:44:29 +0300
+
+qmsystem (0.1.57) unstable; urgency=low
+
+  [Timo Olkkonen]
+  * Fixed a bug in a test.
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Wed, 14 Apr 2010 10:05:53 +0300
+
+qmsystem (0.1.56) unstable; urgency=low
+
+  [Timo Olkkonen]
+  * Added QmUSBMode
+  * Converted old libtime tests for QmTime
+  * Refactored sensor interfaces and modified to use sensord 0.6.6
+  * Fixes: NB#162511 setStandbyOverride() does not seem to work.
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Thu, 08 Apr 2010 13:36:21 +0200
+
+qmsystem (0.1.55) unstable; urgency=low
+
+  [Timo Olkkonen]
+  * Added QmAlarm which uses the new timed
+  * Refactored a lot of interfaces
+  * Added a manual test for QmProximity
+  * Fixes: NB#162864 -  A crash occurs in the QmTime constructor if libtime0 is not installed
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Mon, 29 Mar 2010 13:58:55 +0200
+
+qmsystem (0.1.54) unstable; urgency=low
+
+  [Timo Olkkonen]
+  * Fixes: NB#162059 -  QmSystem QmLocks::getState crashing in scratchbox
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Thu, 25 Mar 2010 09:28:34 +0200
+
+qmsystem (0.1.53) unstable; urgency=low
+
+  [Timo Rongas]
+  * Changed QmMagnetometer datatype to contain calibrated values
+  * Added standbyOverride property for sensor classes
+ -- Timo Rongas <ext-timo.2.rongas@nokia.com>  Wed, 24 Mar 2010 11:00:31 +0200
+
+qmsystem (0.1.52) unstable; urgency=low
+
+  [Timo Olkkonen]
+  * Fixes: NB#161697 -  Deprecated QmKeys::getSliderPosition() returns opposite value.
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Tue, 23 Mar 2010 09:49:11 +0200
+
+qmsystem (0.1.51) unstable; urgency=low
+
+  [Timo Olkkonen]
+  * Fixes: NB#161534 - No QmTime class in libqmsystem-dev
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Mon, 22 Mar 2010 15:09:20 +0200
+
+qmsystem (0.1.50) unstable; urgency=low
+
+  [Timo Olkkonen]
+  * Fixed yet another bug.
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Fri, 19 Mar 2010 16:02:05 +0200
+
+qmsystem (0.1.49) unstable; urgency=low
+
+  [Timo Olkkonen]
+  * Fixed a bug in qmkeyd.
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Fri, 19 Mar 2010 15:57:18 +0200
+
+qmsystem (0.1.48) unstable; urgency=low
+
+  [Timo Olkkonen]
+  * Added a qmkeyd which reads /dev/inputs and offers a socket interface.
+  * Changed QmKeys to use qmkeyd
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Fri, 19 Mar 2010 13:38:40 +0200
+
+qmsystem (0.1.47) unstable; urgency=low
+
+  |Timo Olkkonen]
+  * Fixed a bug
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Thu, 18 Mar 2010 14:31:30 +0200
+
+qmsystem (0.1.46) unstable; urgency=low
+
+  [Timo Olkkonen]
+  * Removed QmAlarms and QmKeys
+  * Fixes: NB#151831 QmAlarm::ring() and QmAlarm::timeChanged() signals are not emitted at all.
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Thu, 18 Mar 2010 12:51:40 +0200
+
+qmsystem (0.1.45) unstable; urgency=low
+
+  [Timo Rongas]
+  * Added interval property for sensor classes
+
+ -- Timo Rongas <ext-timo.2.rongas@nokia.com>  Wed, 17 Mar 2010 16:03:27 +0200
+
+qmsystem (0.1.44) unstable; urgency=low
+
+  [Timo Rongas]
+  * Removed forced default interval setting from sensor classes.
+
+ -- Timo Rongas <ext-timo.2.rongas@nokia.com>  Wed, 17 Mar 2010 11:57:06 +0200
+
+qmsystem (0.1.43) unstable; urgency=low
+
+  [Timo Olkkonen]
+  * Changed QmKeys to read volume buttons from mce via DBus.
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Wed, 10 Mar 2010 15:39:05 +0200
+
+qmsystem (0.1.42) unstable; urgency=low
+
+  [Timo Olkkonen]
+  * Fixes: NB#158608 - Header typo in libqmsystem-dev in rotation class
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Fri, 05 Mar 2010 15:06:50 +0200
+
+qmsystem (0.1.41) unstable; urgency=low
+
+  [Timo Olkkonen]
+  * Fixes: NB#153302 - libqmsystem gpio-switch to gpiolib sysfs and gpio-keys migration
+  * Fixes: NB#148690 - QmKeys::cameraLauncherMoved() misses quick hw camera capture-key presses
+  * Fixed some tests
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Tue, 03 Mar 2010 11:59:15 +0200
+
+qmsystem (0.1.40) unstable; urgency=low
+
+  [Timo Olkkonen]
+  * Changed PSM state gconf key
+  * Added Doxygen comments for QmProcessWatchdog
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Tue, 02 Mar 2010 11:23:45 +0200
+
+qmsystem (0.1.39) unstable; urgency=low
+
+  [Timo Olkkonen]
+  * Fixed some test cases
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Mon, 01 Mar 2010 16:38:00 +0200
+
+qmsystem (0.1.38) unstable; urgency=low
+
+  [Timo Olkkonen]
+  * Fixes: NB#151837 - QmDeviceMode::getPSMState and setPSMState fail.
+  * Added QmProcessWatchdog
+
+  [Na Fan]
+  * Fixes: NB#150099 - BMEVENT_BATMON event never by libbmeipc
+
+ -- Na Fan <ext-na.2.fan@nokia.com>  Thu, 18 Feb 2010 15:35:51 +0200
+
+qmsystem (0.1.37) unstable; urgency=low
+
+  [Timo Olkkonen]
+  * Fixes: NB#147076 - qmDisplayState class fails to be instantiated
+  * Fixes: NB#151531 - system()-call in QmSystem SysfsWatch callback breaks camera-ui video recording
+  * Fixes: NB#151834 - QmCallState::stateChanged signal is not always emitted
+  * Fixes: NB#151839 - QmHeartBeat::open() fails with QmHeartBeat::NoSignalNeeded argument
+  * Fixes: NB#151840 - QmLocks::setDeviceAutolockTime() and QmLocks::getDeviceAutolockTime() are not implemented
+  * Fixes: NB#151862 - QmSystemState::set() function return false always
+  * Fixes: NB#151868 - QmSystemState::ShutdownDeniedUSB is never used
+
+  [Na Fan]
+  * Fixes: NB#155038 - Charging complete notification displayed just after reboot
+
+ -- Na Fan <ext-na.2.fan@nokia.com>  Tue, 16 Feb 2010 16:12:42 +0200
+
+qmsystem (0.1.36) unstable; urgency=low
+
+  * Some fixes to tests
+
+ -- Timo Olkkonen <ext-timo.p.olkkonen@nokia.com>  Tue, 16 Feb 2010 13:59:59 +0200
+
+qmsystem (0.1.35) unstable; urgency=low
+
+  * Fixes: NB#153829 -  qmbattery fails on measurement stop
+
+ -- Aliaksei Katovich <aliaksei.katovich@nokia.com>  Tue, 09 Feb 2010 17:21:28 +0200
+
+qmsystem (0.1.34) unstable; urgency=low
+
+  * Fixes: NB#151375 - DATAFLOW - QmSystem sensor failures
+  * Implements: SWP#MaSSW-1185
+
+ -- Timo Rongas <ext-timo.2.rongas@nokia.com>  Fri, 22 Jan 2010 10:33:20 +0200
+
+qmsystem (0.1.33) unstable; urgency=low
+
+  * Try again ;)
+
+ -- Ilya Dogolazky <ilya.dogolazky@nokia.com>  Sat, 09 Jan 2010 20:13:50 +0200
+
+qmsystem (0.1.32) unstable; urgency=low
+
+  * New version against new Qt version.
+
+ -- Timo Rongas <ext-timo.2.rongas@nokia.com>  Fri, 08 Jan 2010 16:06:24 +0200
+
+qmsystem (0.1.31) unstable; urgency=low
+
+  [Aliaksei Katovich]
+  * qmBattery interface finalized
+
+ -- Timo Rongas <ext-timo.2.rongas@nokia.com>  Thu, 17 Dec 2009 13:09:45 +0200
+
+qmsystem (0.1.30) unstable; urgency=low
+
+  [Ilya Dogolazky]
+  * Fixes: NB#149546 - A weird Qt 4.6 workaround in sysfs-watcher
+
+  [ Raimo Vuonnala]
+  * Added tracing to qmheartbeat
+  * The 'time' parameter for wait-ready signal/slot was broken
+
+  [ Timo Rongas ]
+  * Maemo::QmTime::WhatChanged changed to Maemo::QmTimeWhatChanged
+  * Fixes: NB#149582 - qmsystem fails to build with cs2009q1 toolchain
+
+  [ Tuomo Tanskanen ]
+  * Systemsignals tests complete (still requires unpluggin dsme-dbus manually though)
+
+  [ Sagar Shinde ]
+  * Fixes: NB#148182 - CITA test cases for qmDisplayState fail
+
+ -- Ilya Dogolazky <ilya.dogolazky@nokia.com>  Thu, 10 Dec 2009 15:24:56 +0200
+
+qmsystem (0.1.29) unstable; urgency=low
+
+  [ Raimo Vuonnala ]
+  * System heartbeat signaling was badly broken, fixed
+  * Added signal tests
+
+  [ Tuomo Tanskanen ]
+  * Systemstate fixes, fatal thermel state, battery empty cases
+  * Relevant tests and examples updated
+
+  [ Sagar Shinde ]
+  * dummy test package removed from debian/control
+  * qmBattery updated for new version of libbmeipc package changes
+
+ -- Tuomo Tanskanen <ext-tuomo.1.tanskanen@nokia.com>  Wed, 02 Dec 2009 13:22:25 +0200
+
+qmsystem (0.1.28) unstable; urgency=low
+
+  [ Timo Rongas ]
+  * Fixes: NB#143893 - libsystem.so should be libqmsystem.so
+
+  [ Tuomo Tanskanen ]
+  * Added SYS_MCE_DEVICELOCKMODE_REQ to qsystemdbus
+  * Modified qmlocks to use SYS_MCE_DEVICELOCKMODE_REQ instead of hardcoded API
+
+  [ Sagar Shinde ]
+  * Updated test package meta data
+  * Added dummy test package as suggested by Matti Punkeri as a workaround for CITA script
+
+ -- Tuomo Tanskanen <ext-tuomo.1.tanskanen@nokia.com>  Mon, 30 Nov 2009 15:26:08 +0200
+
+qmsystem (0.1.27) unstable; urgency=low
+
+  [ Timo Rongas ]
+  * Improved sensor class error handling
+  * Included /usr/include/sensord to pkg-config and qmake config
+
+  [ Tuomo Tanskanen ]
+  * Adjusted qmCabc set() logging to be more informative
+  * Removed an extra define from qmCabc get(), as mce-dev is integrated and has this
+
+  [ Sagar Shinde ]
+  * Updated test cases in test package
+  * Updated qmBattery error handling
+
+ -- Timo Rongas <ext-timo.rongas@nokia.com>  Fri, 27 Nov 2009 10:31:01 +0200
+
+qmsystem (0.1.26) unstable; urgency=low
+
+  * Changed the install path for qmsystem-api-all-binary and qmsystem-demo package
+  * NEP current measurement logic added in qmBattery
+  * qmDisplayState bug fixed 147076
+
+ -- Sagar Shinde <ext-sagar.shinde@nokia.com>  Thu, 24 Nov 2009 16:50:55 +0200
+
+qmsystem (0.1.25) unstable; urgency=low
+
+  * PLACEHOLDER FOR 0.1.25 - REPLACE NAME/TS BEFORE COMMIT/TAG
+
+ -- Timo Rongas <ext-timo.rongas@nokia.com>  Thu, 19 Nov 2009 10:50:55 +0200
+
+qmsystem (0.1.24) unstable; urgency=low
+
+  * qmBattery updated for Nokia Energy Profiler requirments
+  * qmBattery updated for latest libbme-ipc
+  * Reverted build to link against sensord directly
+
+ -- Timo Rongas <ext-timo.rongas@nokia.com>  Thu, 19 Nov 2009 08:09:25 +0200
+
+qmsystem (0.1.23) unstable; urgency=low
+
+  * Added sensord includepath and libs to pkg-config configuration
+
+ -- Timo Rongas <ext-timo.rongas@nokia.com>  Wed, 18 Nov 2009 16:08:50 +0200
+
+qmsystem (0.1.22) unstable; urgency=low
+
+  * removed some trailing spaces
+  * testing binaries repackaged
+  * demos moved to /usr/bin/qmsystem-demos
+  * sensor classes refactored to have a common base.
+
+ -- Ilya Dogolazky <ilya-dogolazky@nokia.com>  Wed, 14 Oct 2009 16:38:28 +0300
+
+qmsystem (0.1.21) unstable; urgency=low
+
+  * missing qmBattery.h added
+
+ -- Sagar Shinde <ext-sagar.shinde@nokia.com>  Thu, 8 Oct 2009 10:45:19 +0300
+
+qmsystem (0.1.20) unstable; urgency=low
+
+  * Meta data for test packages changed
+  *New test cases added
+
+ -- Sagar Shinde <ext-sagar.shinde@nokia.com>  Thu, 6 Oct 2009 17:05:19 +0300
+
+qmsystem (0.1.19) unstable; urgency=low
+
+  * Refactoring of test cases
+
+ -- Sagar Shinde <ext-sagar.shinde@nokia.com>  Thu, 2 Oct 2009 19:54:19 +0300
+
+qmsystem (0.1.18) unstable; urgency=low
+
+  * Automated Test Cases updated
+
+ -- Sagar Shinde <ext-sagar.shinde@nokia.com>  Thu, 2 Oct 2009 19:05:19 +0300
+
+qmsystem (0.1.17) unstable; urgency=low
+
+  * Automated Test Cases for all the libqmsystem classes added in test package
+
+ -- Sagar Shinde <ext-sagar.shinde@nokia.com>  Thu, 1 Oct 2009 11:41:19 +0300
+
+qmsystem (0.1.16) unstable; urgency=low
+
+  * Fixes: NB#140233 - qmalarmaction.h:11:22: error: libalarm.h: No such file or directory
+
+ -- Timo Rongas <ext-timo.rongas@nokia.com>  Fri, 25 Sep 2009 08:32:19 +0300
+
+qmsystem (0.1.15) unstable; urgency=low
+
+  * Subscriber for Context Framework updated in QmBattery.(with conditional compilation)
+
+ -- Sagar Shinde <ext-sagar.shinde@nokia.com>  Thu, 24 Sep 2009 11:28:11 +0300
+
+qmsystem (0.1.14) unstable; urgency=low
+
+  * Subscriber for Context Framework implemented in QmBattery.(with conditional compilation)
+
+ -- Sagar Shinde <ext-sagar.shinde@nokia.com>  Thu, 24 Sep 2009 11:10:11 +0300
+
+qmsystem (0.1.13) unstable; urgency=low
+
+  * Removes battery automated test cases from test package as qmBattery is being modified
+
+ -- Sagar Shinde <ext-sagar.shinde@nokia.com>  Tue, 22 Sep 2009 16:33:11 +0300
+
+qmsystem (0.1.12) unstable; urgency=low
+
+  * Fixes: NB#134104 - QmSystem::QmAlarm constructor not public
+
+ -- Timo Rongas <ext-timo.rongas@nokia.com>  Tue, 22 Sep 2009 09:45:11 +0300
+
+qmsystem (0.1.11) unstable; urgency=low
+
+  * Implements: SWP#MaSSW-381
+
+ -- Timo Rongas <ext-timo.rongas@nokia.com>  Fri, 18 Sep 2009 12:34:50 +0300
+
+qmsystem (0.1.10) unstable; urgency=low
+
+  * Added libqmsystem-tests package
+  * Added API tests for com.nokia.SensorService APIs
+  * Added Qt CONFIG utility file
+
+ -- Timo Rongas <ext-timo.rongas@nokia.com>  Thu, 13 Aug 2009 09:15:10 +0300
+
+qmsystem (0.1.9) unstable; urgency=low
+
+  * Redefinition of sensord enumerations in QmTap and QmOrientation.
+  * Re-enabled tap and orientation examples.
+
+ -- Timo Rongas <ext-timo.rongas@nokia.com>  Mon, 10 Aug 2009 17:22:32 +0300
+
+qmsystem (0.1.8) unstable; urgency=low
+
+  * changed cabc mce interface
+
+ -- Ilya Dogolazky <ilya.dogolazky@nokia.com>  Mon, 10 Aug 2009 17:03:21 +0300
+
+qmsystem (0.1.7) unstable; urgency=low
+
+  * Added sysfs watching framework
+  | QmKeys is now using it
+  * Fixed MAEMO_UNINITIALIZE a bit
+  * Implemented handling of camera launcher key
+  * Impoved hw_keys demo
+  * Removed trailing spaces
+
+ -- Ilya Dogolazky <ilya.dogolazky@nokia.com>  Fri, 07 Aug 2009 19:23:43 +0300
+
+qmsystem (0.1.6) unstable; urgency=low
+
+  * Added method and signal for keyboard slider and lens cover to hardware keys
+
+ -- Timo Rongas <ext-timo.rongas@nokia.com>  Fri, 07 Aug 2009 08:20:06 +0300
+
+qmsystem (0.1.5) unstable; urgency=low
+
+  * Implemented harware keys low level interface (up/down events)
+  * Added a demo for QmKeys
+  * Fixed -dbg package
+  * Reformatted some files and removed trailing spaces
+  * Got rid of some duplicated mce definitions, to be done more
+
+ -- Ilya Dogolazky <ilya.dogolazky@nokia.com>  Wed, 05 Aug 2009 16:14:46 +0300
+
+qmsystem (0.1.4) unstable; urgency=low
+
+  * Moved libraries to /usr/lib
+
+ -- Ilya Dogolazky <ilya.dogolazky@nokia.com>  Wed, 29 Jul 2009 10:43:00 +0300
+
+qmsystem (0.1.3) unstable; urgency=low
+
+  * Added QmTime
+
+ -- Timo Rongas <ext-timo.rongas@nokia.com>  Wed, 15 Jul 2009 13:23:38 +0300
+
+qmsystem (0.1.2) unstable; urgency=low
+
+  * Fixed dependency tags for dbg package
+  * Removed subcontractor references
+  * Changed pkg-config configuration to be installed with dev package
+
+ -- Timo Rongas <ext-timo.rongas@nokia.com>  Thu, 09 Jul 2009 10:56:14 +0300
+
+qmsystem (0.1.1) unstable; urgency=low
+
+  * Implements: SWP#MaSSW-387, SWP#MaSSW-497, SWP#MaSSW-386, SWP#MaSSW-499
+  * Implements: SWP#MaSSW-481
+
+ -- Timo Rongas <ext-timo.rongas@nokia.com>  Tue, 07 Jul 2009 10:49:13 +0300
+
+qmsystem (0.1) unstable; urgency=low
+
+  * Initial release.
+
+ -- Timo Rongas <ext-timo.rongas@nokia.com>  Wed, 24 Jun 2009 07:46:36 +0300

@@ -1,0 +1,10 @@
+prefix=/usr
+includedir=${prefix}/include
+libdir=${prefix}/lib/
+
+Name: QmSystem2
+Description: QmSystem2 Library
+Version: 1.1.6
+Requires: QtCore timed
+Libs: -L${libdir} -lqmsystem2
+Cflags: -I${includedir}/qmsystem2

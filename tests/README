@@ -1,0 +1,7 @@
+This folder contains tests for CI process.
+
+Make sure none of the tests require user input or interaction with the
+device.
+
+com.nokia.SensorService API tests only test the API - functionality testing
+is left as responsibility of sensord package.

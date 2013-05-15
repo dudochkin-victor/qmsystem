@@ -1,0 +1,4 @@
+LIBS += -lqmsystem2
+DEPENDPATH += /usr/include/qmsystem2
+INCLUDEPATH += /usr/include/qmsystem2
+CONFIG += timed qt
